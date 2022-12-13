@@ -3,30 +3,30 @@ import math
 
 
 def draw_squares(n):
-    start_a = 0  # Valores iniciais de Fibonacci
-    start_b = 1  # que serão guardados
+    start_a = 0  # Starting values on
+    start_b = 1  # the Fibonacci sequence
 
     square_a = start_a
     square_b = start_b
     spiral_a = start_a
     spiral_b = start_b
 
-    # Desenhando o primeiro quadrado
+    # Drawing the first square
     for i in range(6):
         t.forward(square_b * scale)
         t.left(90)
 
     for i in range(1, n):
-        # Novos valores da sequência
+        # Next numbers on the sequence
         square_a, square_b = square_b, square_a + square_b
 
-        # Desenhando os próximos quadrados
+        # Drawing the following squares
         t.right(90)
         for j in range(6):
             t.forward(square_b * scale)
             t.left(90)
 
-    # Retornando a tartaruga para a posição inicial da espiral
+    # Returning the turtle to the starting point for the spiral
     t.penup()
     t.setposition(0, 0)
     t.seth(0)
@@ -36,7 +36,7 @@ def draw_squares(n):
 
     t.speed(10)
 
-    # Espiral de Fibonacci
+    # Fibonacci spiral
     for i in range(n):
         fwd = math.pi * spiral_b * scale / 180
         for j in range(90):
@@ -47,7 +47,7 @@ def draw_squares(n):
 
 scale = 4
 
-iterations = int(input("Insira o número de iterações (maior que 1): "))
+iterations = int(input("Enter the number of iterations (greater than 1): "))
 t = turtle.Turtle()
 t.speed(10)
 draw_squares(iterations)
